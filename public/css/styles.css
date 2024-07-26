@@ -601,6 +601,9 @@ video {
 .mt-6 {
   margin-top: 1.5rem;
 }
+.mt-5 {
+  margin-top: 1.25rem;
+}
 .block {
   display: block;
 }
@@ -1220,6 +1223,10 @@ body {
 
   .lg\:grid {
     display: grid;
+  }
+
+  .lg\:h-screen {
+    height: 100vh;
   }
 
   .lg\:w-1\/3 {

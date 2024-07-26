@@ -20,29 +20,3 @@ block content
             h2(class="text-4xl text-center text-gray-300 font-semibold font-staatliches my-5") Reseñas
             div(class='w-4/5 lg:w-full flex flex-col lg:flex-row justify-center gap-4 items-center lg:items-stretch lg:my-10')
                 include ./partials/reviews_list
-
-    script.
-        document.addEventListener('DOMContentLoaded', () => {
-            const openModalButtons = document.querySelectorAll('.open-modal');
-            const closeModalButtons = document.querySelectorAll('.close');
-            const modals = document.querySelectorAll('.modal');
-
-            openModalButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const modalId = button.getAttribute('data-modal-target');
-                    document.getElementById(modalId).classList.remove('hidden');
-                });
-            });
-
-            closeModalButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    button.closest('.modal').classList.add('hidden');
-                });
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target.classList.contains('modal')) {
-                    event.target.classList.add('hidden');
-                }
-            });
-        });

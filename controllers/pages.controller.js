@@ -10,10 +10,14 @@ const homePage = async (req, res) => {
 
   try {
     const resData = await Promise.all(data);
+    const formattedGames = resData[0].map((game) => ({
+      ...game.dataValues,
+      formattedReleaseDate: moment(game.release_date).format('DD-MM-YYYY'),
+    }));
     res.render('home', {
       page: 'Inicio',
       clases: 'home',
-      games: resData[0],
+      games: formattedGames,
       reviews: resData[1],
     });
   } catch (error) {
