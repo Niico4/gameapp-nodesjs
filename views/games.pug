@@ -1,0 +1,62 @@
+extends ./layout/index
+
+block content
+  main(class="w-4/5 mx-auto flex flex-wrap justify-center gap-10 my-10")
+    include ./partials/games_list
+
+    each game in games
+      div(id=`modal-${game.slug}` tabindex="-1" class="modal hidden flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 bg-black/70 backdrop-blur-sm justify-center items-center w-full h-screen md:inset-0 h-[calc(100%-1rem)] max-h-full")
+        div(class="relative w-full max-w-md max-h-full")
+          div(class="relative rounded-lg shadow bg-gray-700")
+            div(class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600")
+              h3(class="text-xl font-medium text-white font-staatliches tracking-widest")= game.title
+              button(type="button" class="close text-gray-400 bg-transparent transition-all rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white" data-modal-hide="small-modal")
+                svg.w-3.h-3(aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 14 14')
+                  path(stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6')
+                span(class="sr-only") Close modal
+
+            div(class="p-4 md:p-5 space-y-4")
+              img(class="h-full w-full object-cover rounded-md shadow-md shadow-black/60" src=`/img/game_${game.image}.webp` alt=`imagen del juego ${game.title}`)
+              p(class="text-sm leading-relaxed text-gray-400")= game.description
+            div(class="flex items-center p-4 md:p-5 border-t rounded-b border-gray-600 mx-auto")
+              div(class='w-full grid grid-cols-2 place-content-center gap-4')
+                div(class='flex flex-col gap-2 items-start')
+                  p(class="text-gray-300 text-lg tracking-wider font-covered font-semibold") Fecha de lanzamiento: 
+                  span(class="bg-blue-100 text-indigo-800 text-xs font-medium me-2 px-2.5 py-0.5 dark:bg-indigo-900 dark:text-indigo-300 rounded-full")= game.formattedReleaseDate
+                div(class='flex flex-col gap-2 items-start')
+                  p(class="text-gray-300 text-lg tracking-wider font-covered font-semibold") Categoría: 
+                  span(class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 dark:bg-blue-900 dark:text-blue-300 rounded-full")= game.gender
+                div(class='flex flex-col gap-2 items-start')
+                  p(class="text-gray-300 text-lg tracking-wider font-covered font-semibold") Plataformas soportadas: 
+                  span(class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 dark:bg-purple-900 dark:text-purple-300 rounded-full")= game.platform
+                div(class='flex flex-col gap-2 items-start')
+                  p(class="text-gray-300 text-lg tracking-wider font-covered font-semibold") Precio en el mercado: 
+                  span(class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 dark:bg-green-900 dark:text-green-300 rounded-full")= game.price
+
+
+
+  script.
+    document.addEventListener('DOMContentLoaded', () => {
+      const openModalButtons = document.querySelectorAll('.open-modal');
+      const closeModalButtons = document.querySelectorAll('.close');
+      const modals = document.querySelectorAll('.modal');
+
+      openModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const modalId = button.getAttribute('data-modal-target');
+          document.getElementById(modalId).classList.remove('hidden');
+        });
+      });
+
+      closeModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          button.closest('.modal').classList.add('hidden');
+        });
+      });
+
+      window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+          event.target.classList.add('hidden');
+        }
+      });
+    });

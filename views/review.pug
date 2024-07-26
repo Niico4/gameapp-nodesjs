@@ -1,0 +1,36 @@
+extends ./layout/index
+
+block content
+    main(class="w-full 2xl:h-screen lg:w-4/5 mx-auto mb-20")
+        section
+            h2(class="text-4xl text-center text-gray-300 font-semibold font-staatliches my-10")= page
+            article(class='flex flex-col xl:grid xl:grid-cols-2 w-full justify-items-center items-center')
+                div(class='h-full flex flex-wrap justify-center gap-10 overflow-auto')
+                    include ./partials/reviews_list
+
+                div(class="relative p-4 w-full max-w-md max-h-full")
+                    div(class="relative rounded-lg shadow bg-gray-700")
+                        div(class="flex items-center justify-center p-4 md:p-5 border-b rounded-t border-gray-600")
+                            h3(class="text-2xl font-semibold text-white text-center font-covered tracking-wider") Crear nueva reseña
+                        form(class="p-4 md:p-5 flex flex-col items-center lg:items-end justify-end" action='/review' method='POST')
+                            div(class="grid gap-4 mb-4 grid-cols-2 w-full")
+                                div(class="col-span-2 sm:col-span-1")
+                                    label(for="name" class="block mb-2 text-sm font-medium text-white") Nombre
+                                    input(type="text" name="name" class="border text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" placeholder="Juanito" required="")
+
+                                div(class="col-span-2 sm:col-span-1")
+                                    label(for="last_name" class="block mb-2 text-sm font-medium text-white") Apellido
+                                    input(type="text" name="last_name" class="border text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" placeholder="Alimaña" required="")
+
+                                div(class="col-span-2")
+                                    label(for="email" class="block mb-2 text-sm font-medium text-white") Email
+                                    input(type="email" name="email" class="border text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" placeholder="juanito@correo.com" required="")
+
+                                div(class="col-span-2")
+                                    label(for="description" class="block mb-2 text-sm font-medium text-white") Mensaje
+                                    textarea#message(type='text' name='message' required="" placeholder='¿Qué opinas de la página?' class="block p-2.5 w-full text-sm rounded-lg border bg-gray-600 border-gray-500 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500")
+
+                            button(type="submit" class="text-white inline-flex items-center focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-blue-95s0 border border-slate-500 hover:border-slate-600")
+                                svg.me-1.-ms-1.w-5.h-5(fill='currentColor' viewbox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+                                    path(fill-rule='evenodd' d='M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z' clip-rule='evenodd')
+                                p Añadir Reseña

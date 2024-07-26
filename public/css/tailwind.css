@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slider {
+  background: url(../img/about-us.webp);
+  min-height: 600px;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.slider h1 {
+  color: white;
+  font-size: 3.4rem;
+}
+
+.slider em {
+  font-family: 'Covered By Your Grace', cursive;
+  text-align: center;
+  font-size: 4rem;
+  order: -1;
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(2px 2px 4px rgb(0, 128, 255));
+}
+@media (min-width: 768px) {
+  .slider em {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider h1 {
+    font-size: 1.8rem;
+  }
+  .slider {
+    background: url(../img/image.webp);
+    background-position: center center;
+  }
+}
+
+.home {
+  position: relative;
+}
+.home header {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+body {
+  background-image: radial-gradient(
+      circle at 99% 33%,
+      hsla(235, 0%, 48%, 0.03) 0%,
+      hsla(235, 0%, 48%, 0.03) 37%,
+      transparent 37%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 46% 16%,
+      hsla(235, 0%, 48%, 0.03) 0%,
+      hsla(235, 0%, 48%, 0.03) 43%,
+      transparent 43%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 99% 25%,
+      hsla(235, 0%, 48%, 0.03) 0%,
+      hsla(235, 0%, 48%, 0.03) 22%,
+      transparent 22%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 57% 88%,
+      hsla(235, 0%, 48%, 0.03) 0%,
+      hsla(235, 0%, 48%, 0.03) 86%,
+      transparent 86%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 82% 78%,
+      hsla(235, 0%, 48%, 0.03) 0%,
+      hsla(235, 0%, 48%, 0.03) 22%,
+      transparent 22%,
+      transparent 100%
+    ),
+    linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
+}

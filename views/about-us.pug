@@ -1,0 +1,43 @@
+extends ./layout/index
+
+block content
+    main(class='w-4/5 mx-auto h-screen mb-10')
+        h1(class="text-4xl text-center text-gray-300 font-semibold font-staatliches mt-10") #{page}
+        section(class="flex flex-col xl:flex-row items-center justify-center gap-10 mt-12 mb-20")
+            figure(class="w-full xl:w-[600px]")
+                img(src="/img/about-us.webp" alt="Imagen sobre nosotros" class="w-full h-full object-cover rounded-md shadow-lg shadow-black/60")
+            article(class='w-full xl:w-2/5')
+                h3(class='text-2xl font-semibold font-covered mb-2 text-gray-300') ¡Bienvenidos a GameHaven!
+                p(class='text-sm text-pretty text-gray-300') En GameHaven, vivimos y respiramos videojuegos. Somos un equipo de apasionados gamers y críticos que se dedica a ofrecerte la documentación más completa y detallada del universo de los videojuegos. Ya sea que estés buscando información sobre el último lanzamiento, revisando las calificaciones de los clásicos atemporales o comparando precios para tu próxima compra, ¡lo tenemos todo cubierto!
+
+                h3(class='text-2xl font-semibold font-covered my-2 text-gray-300') ¿Qué hacemos?
+                ul
+                    li(class='text-sm text-pretty text-gray-300') Documentación Exhaustiva: Descubre de qué se tratan tus videojuegos favoritos con descripciones detalladas y análisis profundos.
+                    li(class='text-sm text-pretty text-gray-300') Reseñas y Calificaciones: Lee lo que otros jugadores y críticos piensan sobre los juegos antes de que decidas jugar.
+                    li(class='text-sm text-pretty text-gray-300') Comparación de Precios: Encuentra las mejores ofertas y asegura que siempre obtengas el mejor trato.
+
+
+        section(class='w-full flex flex-col md:flex-row flex-wrap justify-center gap-4 mt-20')
+            div(class="max-w-sm p-6 borde rounded-lg shadow bg-gray-800 border-gray-700")
+                div(class='flex items-center align-middle justify-center gap-2 mb-4')
+                    img(src="/img/update.svg" alt="Icono Actualización" class="size-8")
+                    h5(class="text-xl font-semibold text-center tracking-tight text-white") Actualizaciones Constantes
+                p(class="mb-3 font-normal text-sm text-gray-400") Siempre al Día: Nuestro equipo se asegura de mantener la información de los videojuegos siempre actualizada con las últimas novedades y lanzamientos.
+
+            div(class="max-w-sm p-6 borde rounded-lg shadow bg-gray-800 border-gray-700")
+                div(class='flex items-center align-middle justify-center gap-2 mb-4')
+                    img(src="/img/comment.svg" alt="Icono de comentarios" class="size-8")
+                    h5(class="text-xl font-semibold text-center tracking-tight text-white") Reseñas de Usuarios
+                p(class="mb-3 font-normal text-sm text-gray-400") Opiniones Reales: Ofrecemos reseñas auténticas de jugadores para ayudarte a decidir si un juego es adecuado para ti.
+
+            div(class="max-w-sm p-6 borde rounded-lg shadow bg-gray-800 border-gray-700")
+                div(class='flex items-center align-middle justify-center gap-2 mb-4')
+                    img(src="/img/price.svg" alt="Icono de precio" class="size-8")
+                    h5(class="text-xl font-semibold text-center tracking-tight text-white") Comparación de Precios
+                p(class="mb-3 font-normal text-sm text-gray-400") Opiniones Reales: Ofrecemos reseñas auténticas de jugadores para ayudarte a decidir si un juego es adecuado para ti.
+
+            div(class="max-w-sm p-6 borde rounded-lg shadow bg-gray-800 border-gray-700")
+                div(class='flex items-center align-middle justify-center gap-2 mb-4')
+                    img(src="/img/folder.svg" alt="Icono de carpeta" class="size-8")
+                    h5(class="text-xl font-semibold text-center tracking-tight text-white") Documentación Extensa
+                p(class="mb-3 font-normal text-sm text-gray-400") Todo lo que Necesitas Saber: Desde guías detalladas hasta la historia de desarrollo, proporcionamos toda la información necesaria sobre tus juegos preferidos.
